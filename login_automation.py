@@ -21,3 +21,6 @@ password_input = wait.until(EC.visibility_of_element_located((By.ID, 'password')
 username_input.send_keys(os.environ['USERNAME'])
 password_input.send_keys(os.environ['PASSWORD'])
 password_input.submit()
+
+add_to_cart_button = wait.until(EC.visibility_of_element_located((By.ID, 'add-to-cart-sauce-labs-backpack')))
+add_to_cart_button.click()
