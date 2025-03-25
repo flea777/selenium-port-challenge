@@ -38,7 +38,14 @@ def get_data_from_first_n_lis(soup, li_class, n=5):
     return data
 
 title_and_link_from_search = get_data_from_first_n_lis(soup, 'b_algo')  
-print(title_and_link_from_search)
 
-sleep(5)
+def print_data_from_array_on_console(array):
+    for i in range(len(array)):
+        data = array[i]
+        print(i + 1, '. ', data['title'], ' - ', data['link'])
+
+print('------------------------')
+print_data_from_array_on_console(title_and_link_from_search)
+print('------------------------')
+
 driver.quit()
