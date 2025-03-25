@@ -1,0 +1,8 @@
+ls -> lista os arquivos e diretórios de uma página
+ls -a -> lista os arquivos e diretórios incluindo ocultos de uma página
+
+mkdir -> cria um diretório
+
+du -sh /* -> exibe uso de espaço de disco
+
+top -o %CPU -> descobre qual processo está utilizando mais CPU
