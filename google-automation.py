@@ -23,13 +23,22 @@ wait.until(EC.visibility_of_all_elements_located((By.CLASS_NAME, 'b_algo')))
 page_source = driver.page_source
 soup = BeautifulSoup(page_source, 'html.parser')
 
-def get_h2_from_first_n_lis(soup, li_class, n=5):
+def get_data_from_first_n_lis(soup, li_class, n=5):
     first_n_lis = soup.find_all('li', class_=li_class, limit=n)
-    tag_h2_search_title = [li.find('h2') for li in first_n_lis if li.find('h2')]
-    return [h2.text.strip() for h2 in tag_h2_search_title]
+    data = []
+    for li in first_n_lis:
+        h2_tag = li.find('h2')
+        if h2_tag:
+            a_tag =  h2_tag.find('a')
+            data.append({
+                'title': h2_tag.text.strip(),
+                'link': a_tag['href'] if a_tag and 'href' in a_tag.attrs else None
+                })
 
-first_titles = get_h2_from_first_n_lis(soup, 'b_algo')  
-print(first_titles)
+    return data
+
+title_and_link_from_search = get_data_from_first_n_lis(soup, 'b_algo')  
+print(title_and_link_from_search)
 
 sleep(5)
 driver.quit()
