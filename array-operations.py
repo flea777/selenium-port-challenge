@@ -1,4 +1,4 @@
-numbers0 = [1, 2, 3, 4, 5]
+numbers0 = [1, 2, 4, 5]
 numbers1 = [2, 4, 5]
 
 def find_missing_number(numbers):
