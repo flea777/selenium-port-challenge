@@ -36,8 +36,8 @@ def extract_search_results(soup, n=5):
 result = extract_search_results(soup)  
 
 def print_result(result):
-    for idx in enumerate(result, start=1):
-        print(f"{idx}. {result['title']} - {result['link']}")
+    for idx, item in enumerate(result, start=1):
+        print(f"{idx}. {item['title']} - {item['link']}")
 
 print('------------------------')
 print_result(result)
